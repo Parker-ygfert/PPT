@@ -1,12 +1,22 @@
 - Model Board
   - `title:string`
   - `intro:text`
-  - `state:string(default: normal, disable, hidden)`
+  - `state:string, default: [normal, disable, hidden]`
   - `is_deleted:boolean`
   - `deleted_at:datetime(default: nil)` <-- index 13:55/0723
   > 與 `is_deleted` 相比會比較佔空間，但可以清楚知道何時被刪除
 
-  - db/migrate (建立 boards 表格)
+  - db/migrate 內的檔案 (建立 boards 表格)
+
+- Model User acount:string name:string address:string email:string age:integer is_deleted:boolean 
+- Model User
+  - `account:string`
+  - `password:string`
+  - `name:string`
+  - `email:string`
+  - `age:integer`
+  - `is_visible:boolean, default: true`
+  - `is_deleted:boolean, default: false`
 
 - Controller Users
   - `#new` (新增資料)
@@ -28,7 +38,7 @@
 
 - Controller Posts
 
-- Model User acount:string name:string address:string email:string age:integer
+
 - Model Post 
 
 
@@ -39,3 +49,4 @@
 - Favourite ?
 - Category ?
 - Chat ?
+
