@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root 'pages#index'
+  get '/about', to: "pages#about"
+
+  resources :aobut
+  #* 也可以這樣寫，但 root 寫法比較常見
+  # get '/', to: "pages#index"
 end
