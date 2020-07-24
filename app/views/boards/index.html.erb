@@ -4,9 +4,21 @@
 <!-- <a href="<% new_board_path %>">新增看板2</a> -->
 <!-- 用 path 在開發過程中可以提早發現錯誤 -->
 <%= link_to '新增看板', new_board_path %>
+
+<br>
+
+<!-- <%= flash[:notice] %> -->
+<!-- <%= notice %> 新的寫法 -->
+<!-- 直接放在共用版面比較方便 -->
   
 <ul>
   <% @boards.each do |board| %>
-    <li><%= board.title %></li>
+    <!-- <li><%= link_to board.title, '/board/#{board.id}' %></li> -->
+    <li>
+      <%= link_to board.title, board_path(board) %>
+      <%= link_to '編輯', edit_board_path(board) %>
+      <%= link_to '刪除', board_path(board), method: 'delete', data: {confirm: '確認刪除？'} %>
+    </li>
+    <!-- <li><%= link_to board.title, board %></li> -->
   <% end %>
 </ul>

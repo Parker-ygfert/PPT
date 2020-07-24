@@ -1,13 +1,57 @@
 <h1>新增看板</h1>
 
+<!--* Partial Render -->
+<%= render 'form', board: @board %>
+
+<!--
+<% if @board.errors.any? %>
+  <ul>
+    <% @board.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for(@board) do |f| %>
+
+  <%= f.label :title, "看板名稱" %>
+  <%= f.text_field :title %>
+  
+  <br>
+
+  <%= f.label :intro, "看板描述" %>
+  <%= f.text_area :intro %>
+
+  <br>
+
+  <%= f.submit "送出" %>
+
+<% end %>
+
+
+<hr>
+-->
+
+
+<%# 手刻表單 %>
+<!--
 <form action="/boards" method="post">
+
+  <input type="text" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <br>
 
   <label for="title">看板名稱</label>
   <input type="text" id="title" name="title">
 
+  <br>
+  
   <label for="intro">說明</label>
   <textarea id="intro" name="intro"></textarea>
+
+  <br>
 
   <input type="submit"  value="送出">
 
 </form>
+-->
