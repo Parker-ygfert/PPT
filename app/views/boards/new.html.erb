@@ -1,5 +1,17 @@
 <h1>新增看板</h1>
 
+<!--* Partial Render -->
+<%= render 'form', board: @board %>
+
+<!--
+<% if @board.errors.any? %>
+  <ul>
+    <% @board.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_for(@board) do |f| %>
 
   <%= f.label :title, "看板名稱" %>
@@ -18,6 +30,7 @@
 
 
 <hr>
+-->
 
 
 <%# 手刻表單 %>
