@@ -4,6 +4,12 @@
 <!-- <a href="<% new_board_path %>">新增看板2</a> -->
 <!-- 用 path 在開發過程中可以提早發現錯誤 -->
 <%= link_to '新增看板', new_board_path %>
+
+<br>
+
+<!-- <%= flash[:notice] %> -->
+<!-- <%= notice %> 新的寫法 -->
+<!-- 直接放在共用版面比較方便 -->
   
 <ul>
   <% @boards.each do |board| %>
