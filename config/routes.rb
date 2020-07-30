@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'pages#index'
+  root 'boards#index'
   # get '/', to: "pages#index"
   #* 也可以這樣寫，但 root 寫法比較常見
 
