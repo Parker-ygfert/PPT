@@ -1,3 +1,13 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+p {
+  font-size: 26px;
+}
+
 form {
   label {
     display: block;
@@ -16,4 +26,28 @@ form {
 
 .posts-list {
   font-size: 24px;
+}
+
+
+table {
+  font-size: 24px;
+  border-collapse: collapse;
+  text-align: center;
+  margin: auto;
+
+  th, td {
+    padding: 5px 10px;
+    border: 1px solid #aaa;
+    min-width: 20px;
+  }
+  td {
+    font-size: 20px;
+    font-weight: 400;
+  }
+}
+
+
+footer {
+  // outline: 1px solid #faa;
+  padding-top: 30px;
 }

@@ -1,24 +1,40 @@
-<h1>看板<h1>
-
-<!-- <a href="/boards/new">新增看板1</a> -->
-<!-- <a href="<% new_board_path %>">新增看板2</a> -->
-<!-- 用 path 在開發過程中可以提早發現錯誤 -->
-<%= link_to '新增看板', new_board_path %>
-
-<br>
-
-<!-- <%= flash[:notice] %> -->
-<!-- <%= notice %> 新的寫法 -->
-<!-- 直接放在共用版面比較方便 -->
+<div class="container">
+  <h1>所有看板<h1>
   
-<ul>
-  <% @boards.each do |board| %>
-    <!-- <li><%= link_to board.title, '/board/#{board.id}' %></li> -->
-    <li>
-      <%= link_to board.title, board_path(board) %>
-      <%= link_to '編輯', edit_board_path(board) %>
-      <%= link_to '刪除', board_path(board), method: 'delete', data: {confirm: '確認刪除？'} %>
-    </li>
-    <!-- <li><%= link_to board.title, board %></li> -->
-  <% end %>
-</ul>
+  <!-- <a href="/boards/new">新增看板1</a> -->
+  <!-- <a href="<% new_board_path %>">新增看板2</a> -->
+  <!-- 用 path 在開發過程中可以提早發現錯誤 -->
+  <p><%= link_to '新增看板', new_board_path %></p>
+  
+  
+  <!-- <%= flash[:notice] %> -->
+  <!-- <%= notice %> 新的寫法 -->
+  <!-- 直接放在共用版面比較方便 -->
+    
+  <table>
+    <thead>
+      <tr>
+        <th>編號</th>
+        <th>看板</th>
+        <th>中文敘述</th>
+        <th>版主</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% @boards.each do |board| %>
+        <tr>
+          <!-- <li><%= link_to board.title, '/board/#{board.id}' %></li> -->
+          <td><%= board.id %></td>
+          <td><%= link_to board.title, board %></td>
+          <td><%= board.intro %></td>
+          <td>暫缺</td>
+          <td><%= link_to '編輯', edit_board_path(board) %></td>
+          <td><%= link_to '刪除', board_path(board), method: 'delete', data: {confirm: '確認刪除？'} %></td>
+          <!-- <li><%= link_to board.title, board %></li> -->
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

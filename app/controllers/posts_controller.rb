@@ -2,6 +2,11 @@ class PostsController < ApplicationController
 
   before_action :find_board, only: [:new, :create]
 
+  def show
+    @post = Post.find(params[:id])
+    @board = @post.board
+  end
+
   def new
     # board = Board.find(params[:board_id])
     #* 先確定看板編號存在

@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>
+    <%= @post.title %>
+  </h1>
+  <br>
+    <%= link_to "編輯", @post %>
+    <%= link_to "刪除", @post %>
+  <p>
+    <%= link_to "回看板", board_path(@board) %>
+  </p>
+</div>
