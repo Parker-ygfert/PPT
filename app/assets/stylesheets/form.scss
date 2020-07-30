@@ -2,13 +2,18 @@ form {
   label {
     display: block;
   }
-  input {
-    border-radius: 50px;
+  input, textarea {
+    border-radius: 5px;
+    border: 2px solid #aaa;
   }
 
   .field_with_errors {
     input, textarea {
-      border-color: #faa;
+      border-color: #f55;
     }
   }
+}
+
+.posts-list {
+  font-size: 24px;
 }

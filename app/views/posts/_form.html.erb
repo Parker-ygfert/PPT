@@ -1,0 +1,35 @@
+<% if post.errors.any? %>
+  <ul>
+    <% post.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with(model: post, url: :board_posts) do |f| %>
+
+  <div class="field">
+    <%= f.label :title, "標題" %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :content, "內容" %>
+    <%= f.text_area :content %>
+  </div>
+
+  <div class="field">
+    <%= f.label :board_id, "看板編號" %>
+    <%= post.board_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ip_address, "IP位址" %>
+    <%= f.text_field :ip_address %>
+  </div>
+
+  <div class="field">
+    <%= f.submit "送出" %>
+  </div>
+
+<% end %>
