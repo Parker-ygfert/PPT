@@ -6,5 +6,5 @@
       board_referances
       board:belongs_to
   - deleted_at:datetime, default: nil, :index
-  - ip:string, 必填
+  - ip_address:string, 必填
   - serail:string, :unique

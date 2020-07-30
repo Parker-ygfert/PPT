@@ -11,7 +11,7 @@ class BoardsController < ApplicationController
 
   def index
     # @boards = Board.where(deleted_at: nil)
-    @boards = Board.available
+    @boards = Board.all
   end
 
   def show
@@ -85,7 +85,7 @@ class BoardsController < ApplicationController
 
   private
   def find_board
-    @boards = Board.find(params[:id])
+    @board = Board.find(params[:id])
   end
   
   def board_params
