@@ -1,7 +1,10 @@
 class Board < ApplicationRecord
+  acts_as_paranoid
 
   #* 為何表單驗證是在 Model 這邊做?
   validates :title, :intro, presence: true, length: { minimum: 2 }
+
+  has_many :articles
 
   # default_scope { where(deleted_at: nil) }
   #* 為所有搜尋都加上這條限制
