@@ -1,12 +1,12 @@
 <% if post.errors.any? %>
-  <ul>
+  <ul class="error_msg">
     <% post.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
   </ul>
 <% end %>
 
-<%= form_with(model: post, url: :board_posts) do |f| %>
+<%= form_with(model: post, url: :board_posts, local: true) do |f| %>
 
   <div class="field">
     <%= f.label :title, "標題" %>

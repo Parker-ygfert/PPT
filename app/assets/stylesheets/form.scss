@@ -1,7 +1,22 @@
+body {
+  background-color: #000;
+}
+
 .container {
   max-width: 1000px;
   margin: 0 auto;
   text-align: center;
+  color: #fff;
+}
+
+a {
+  color: #ffa;
+  text-decoration: none;
+}
+a:hover {
+  color: #fa3;
+  // font-size: 28px;
+  transition: .5s;
 }
 
 p {
@@ -22,6 +37,13 @@ form {
       border-color: #f55;
     }
   }
+}
+
+.error_msg {
+  color: #f55;
+  width: 20%;
+  margin: auto;
+  text-align-last: left;
 }
 
 .posts-list {

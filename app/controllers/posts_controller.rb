@@ -19,7 +19,7 @@ class PostsController < ApplicationController
 
     if @post.save
       # redirecto_to board_path(board.id), notice: "文章新增成功"
-      redirecto_to @board, notice: "文章新增成功"
+      redirect_to @board, notice: "文章新增成功"
     else
       render :new
     end
