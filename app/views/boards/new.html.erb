@@ -1,9 +1,11 @@
-<h1>新增看板</h1>
+<div class="container">
+  <h1>新增看板</h1>
+  
+  <!--* Partial Render -->
+  <%= render 'form', board: @board %>
+</div>
 
-<!--* Partial Render -->
-<%= render 'form', board: @board %>
-
-
+<!--
 <% if @board.errors.any? %>
   <ul>
     <% @board.errors.full_messages.each do |msg| %>
@@ -35,6 +37,7 @@
 
 <%# 手刻表單 %>
 
+<!-- 
 <form action="/boards" method="post">
 
   <input type="text" name="authenticity_token" value="<%= form_authenticity_token %>">

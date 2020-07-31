@@ -8,15 +8,18 @@
 
   - db/migrate 內的檔案 (建立 boards 表格)
 
-- Model User acount:string name:string address:string email:string age:integer is_deleted:boolean 
 - Model User
   - `account:string`
   - `password:string`
-  - `name:string`
+  - `nickname:string`
   - `email:string`
+  - `gender:string`
+  - `state:string`
+  - `deleted_at:datetime, :index`
   - `age:integer`
   - `is_visible:boolean, default: true`
-  - `is_deleted:boolean, default: false`
+
+
 
 - Controller Users
   - `#new` (新增資料)

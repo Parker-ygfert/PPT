@@ -40,10 +40,10 @@ class BoardsController < ApplicationController
   end
 
   def create
-    @board = Board.new(params[:board])
+    # @board = Board.new(params[:board])
     #* 參數未經過清洗會被擋住
 
-    # @board = Board.new(board_params)
+    @board = Board.new(board_params)
 
     if @board.save
       # flash[:notice] = "新增成功"

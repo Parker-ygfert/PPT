@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_30_041634) do
+ActiveRecord::Schema.define(version: 2020_07_31_073759) do
 
   create_table "boards", force: :cascade do |t|
     t.string "title"
@@ -39,15 +39,16 @@ ActiveRecord::Schema.define(version: 2020_07_30_041634) do
   create_table "users", force: :cascade do |t|
     t.string "account"
     t.string "password"
-    t.string "name"
-    t.string "address"
     t.string "email"
-    t.integer "age"
-    t.boolean "is_visible", default: true
-    t.boolean "is_deleted", default: false
+    t.string "nickname"
+    t.string "gender"
+    t.string "state", default: "normal"
+    t.datetime "deleted_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.date "born_date"
+    t.index ["account"], name: "index_users_on_account", unique: true
+    t.index ["deleted_at"], name: "index_users_on_deleted_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "posts", "boards"
