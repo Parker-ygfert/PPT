@@ -1,9 +1,13 @@
 class UsersController < ApplicationController
 
-  def index
-    @users = User.all
+  def sign_up
   end
 
+  def sign_in
+  end
+
+
+  
   def new
     @user = User.new
   end

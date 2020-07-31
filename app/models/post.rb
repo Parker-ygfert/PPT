@@ -11,7 +11,7 @@ class Post < ApplicationRecord
 
 
 
-  before_create :create_serail
+  before_create :create_serial
 
   private
   def create_serial

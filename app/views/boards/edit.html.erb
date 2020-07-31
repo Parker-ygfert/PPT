@@ -1,6 +1,7 @@
 <h1>編輯看板</h1>
 
-<%= render 'form', board: @board %>
+<%= render "form", board: @board %>
+<%= link_to "回看板列表", boards_path %>
 
 <!--
 <% if @board.errors.any? %>

@@ -14,4 +14,22 @@ Rails.application.routes.draw do
   end
 
   # resources :posts, except: [:index, :new, :create]
+
+  resources :users, only: [:create] do
+    #* 擴充新路徑
+    #* member 有 ID
+    # member do
+    #   get :profile
+    # end
+
+    #* collection 無 ID
+    collection do
+      get :sign_up
+      get :edit
+      patch :update
+      get :sign_in
+      post :login
+      delete :sing_out
+    end
+  end
 end
