@@ -4,7 +4,11 @@
   <!-- <a href="/boards/new">新增看板1</a> -->
   <!-- <a href="<% new_board_path %>">新增看板2</a> -->
   <!-- 用 path 在開發過程中可以提早發現錯誤 -->
-  <p><%= link_to '新增看板', new_board_path %></p>
+  <div class="row">
+    <p class="links"><%= link_to "新增看板", :new_board %></p>
+    <p class="links"><%= link_to "註冊", :sign_up_users %></p>
+    <p class="links"><%= link_to "登入", :sign_in_users %></p>
+  </div>
   
   
   <!-- <%= flash[:notice] %> -->

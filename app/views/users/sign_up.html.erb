@@ -1,1 +1,46 @@
 <h1>安安你好請註冊新帳號</h1>
+<% if @user.errors.any? %>
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with(model: @user, url: :sing_out_users, local: true) do |f| %>
+
+  <div>
+    <%= f.label :account, "帳號" %>
+    <%= f.text_field :account %>
+  </div>
+
+  <div>
+    <%= f.label :nickname, "暱稱" %>
+    <%= f.text_field :nickname %>
+  </div>
+
+  <div>
+    <%= f.label :email, "信箱" %>
+    <%= f.email_field :email %>
+  </div>
+
+  <div>
+    <%= f.label :password, "密碼" %>
+    <%= f.password_field :password %>
+  </div>
+
+  <div>
+    <%= f.label :password_confirm, "密碼確認" %>
+    <%= f.password_field :password_confirm %>
+  </div>
+
+  <div>
+    <%= f.label :gender, "性別" %>
+    <%= f.text_field :gender %>
+  </div>
+
+  <div>
+    <%= f.submit "送出" %>
+  </div>
+
+<% end %>
