@@ -11,7 +11,8 @@ class User < ApplicationRecord
   # def self.login(account:, password:)
   def self.login(options)
     if options[:account] and options[:password]      
-      find_by(account: options[:account], password: Digest::SHA1.hexdigest("x#{options[:password]}y"))
+      find_by(account: options[:account],
+              password: Digest::SHA1.hexdigest("x#{options[:password]}y"))
     else
       return false
     end
@@ -30,3 +31,5 @@ class User < ApplicationRecord
   end
   
 end
+
+

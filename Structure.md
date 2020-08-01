@@ -8,6 +8,8 @@
 
   - db/migrate 內的檔案 (建立 boards 表格)
 
+
+
 - Model User
   - `account:string`
   - `password:string`

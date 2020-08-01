@@ -12,4 +12,31 @@
  *
  *= require_tree .
  *= require_self
- */
+*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+body {
+  background-color: #000;
+  color: #ccc;
+  padding: 30px 0;
+}
+
+
+footer.row {
+  justify-content: center;
+  background-color: #c0c0c0;
+}
+footer span {
+  color: #555;
+  font-size: 24px;
+  line-height: 100%;
+}

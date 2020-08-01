@@ -1,0 +1,22 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 15px;
+  text-align: center;
+  box-sizing: border-box;
+}
+.row {
+  display: flex;
+  margin: 0 -15px;
+  flex-wrap: wrap;
+}
+[class^="col-"] {
+  box-sizing: border-box;
+  padding: 0 15px;
+}
+.col-12 {
+  width: 100%;
+}
+.col-6 {
+  width: 50%;
+}

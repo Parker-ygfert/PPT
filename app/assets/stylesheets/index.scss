@@ -1,0 +1,99 @@
+header {
+  background-color: #082081;
+}
+header.row {
+  align-items: center;
+  position: relative;
+}
+header h1 {
+  line-height: 100%;
+  font-size: 1.6em;
+  color: #ff0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+header .locate {
+  line-height: 100%;
+  font-size: 1.5em;
+}
+
+
+.banner {
+  margin-bottom: 1.5rem;
+}
+.banner img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+
+.divider span {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-size: 1.8em;
+}
+.divider span::before {
+  content: '';
+  display: block;
+  height: 2px;
+  background-color: #fff;
+  flex-grow: 1;
+}
+.divider span::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background-color: #fff;
+  flex-grow: 1;
+}
+
+
+nav.row {
+  // width: 40%;
+  margin: auto;
+}
+nav .links {
+  margin: 0;
+  text-align: center;
+}
+nav .links a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ccc;
+}
+nav .links p {
+  margin: 0 0 2px;
+  line-height: 100%;
+}
+nav .links p.en {
+  margin-left: 15rem;
+  font-size: 24px;
+  position: relative;
+  // font-family: 'Ubuntu Mono', monospace;
+}
+nav .links p.zh {
+  margin-right: 15rem;
+}
+nav .links:last-child p.zh {
+  margin-right: 14.7rem;
+  display: flex;
+  align-items: center;
+}
+nav .links:last-child p.zh::after {
+  content: '···';
+  display: block;
+}
+nav span.hotkey {
+  color: #0ff;
+  font-size: 22px;
+  font-family: 'PT Mono', monospace;
+}
+nav a:hover p.en::before {
+  content: '●';
+  position: absolute;
+  left: -30px;
+}
