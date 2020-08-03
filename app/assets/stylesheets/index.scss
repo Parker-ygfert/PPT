@@ -20,6 +20,7 @@ header .locate {
 }
 header nav {
   margin-left: auto;
+  z-index: 1;
 }
 header nav ul {
   display: flex;
