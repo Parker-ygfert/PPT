@@ -11,13 +11,12 @@
 
   <body>
     <div class="container">
-      <%= notice %>
+      <%= render "shared/frontend/navbar" %>
+      <%= render "shared/common/flash" %>
+
       <%= yield %>
   
-      
-      <footer class="row">
-        <span>&copy; PPT 版權所有</span>
-      </footer>
+      <%= render "shared/frontend/footer" %>
     </div>
   </body>
 </html>

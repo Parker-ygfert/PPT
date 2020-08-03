@@ -1,0 +1,16 @@
+<header class="row">
+  <p class="locate">【主功能表】</p>
+
+  <h1>批批踢實業坊</h1>
+  <nav>
+    <ul>
+      <% if session[:user_token] %>
+      <li><%= @current_user.account %></li>
+      <li>登出</li>
+      <% else %>
+      <li>登入</li>
+      <li>註冊</li>
+      <% end %>
+    </ul>
+  </nav>
+</header>

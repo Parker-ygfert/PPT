@@ -18,6 +18,15 @@ header .locate {
   line-height: 100%;
   font-size: 1.5em;
 }
+header nav {
+  margin-left: auto;
+}
+header nav ul {
+  display: flex;
+}
+header nav ul li {
+  margin-right: 15px;
+}
 
 
 .banner {

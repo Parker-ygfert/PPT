@@ -25,6 +25,8 @@ p {
 }
 
 form {
+  margin-bottom: 30px;
+  
   label {
     display: block;
   }
@@ -37,6 +39,10 @@ form {
     input, textarea {
       border-color: #f55;
     }
+  }
+
+  .submit {
+    margin-top: 20px;
   }
 }
 

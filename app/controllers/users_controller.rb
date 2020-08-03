@@ -9,10 +9,12 @@ class UsersController < ApplicationController
     #* new 的時候無法寫入是因為參數未經過清洗會被擋住
 
     @user = User.new(user_params)
-
-    # debugger
+    
     if @user.save
-      redirect_to root_path, notice: "新增成功"
+      #* 登入
+      session[:user_token] = @user.id
+      #* 去首頁
+      redirect_to root_path, notice: "會員註冊成功"
     else
       flash[:notice] = "請完成資料填寫"
       render :sign_up
@@ -24,12 +26,9 @@ class UsersController < ApplicationController
 
 
 
-
-
-
   private
   def user_params
-    params.require(:user).permit(:account, :password, :name, :email, :age, :born_date)
+    params.require(:user).permit(:account, :password, :nickname, :email)
   end
   
 end
