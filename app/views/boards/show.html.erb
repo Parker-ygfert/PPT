@@ -1,5 +1,6 @@
 <div class="container">
   <h1>看板：<%= @board.title %></h1> 
+  <p>[版主：<%= display_bm(@board) %>]</p>
   <h2>
     <%= link_to "新增文章", new_board_post_path(@board) %>
   </h2>
