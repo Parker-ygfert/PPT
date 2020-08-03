@@ -13,6 +13,7 @@ class BoardsController < ApplicationController
   def index
     # @boards = Board.where(deleted_at: nil)
     @boards = Board.all
+    @location = "看板列表"
   end
 
   def show

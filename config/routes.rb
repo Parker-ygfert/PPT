@@ -15,7 +15,17 @@ Rails.application.routes.draw do
 
   # resources :posts, except: [:index, :new, :create]
 
-  resources :users, only: [:create] do
+  resource :users, only: [:create, :edit, :update] do
+    collection do
+      get :sign_up
+      get :sign_in
+      post :login
+      delete :sign_out
+    end
+  end
+
+  #! create 路徑顯示會跑到最下面
+  # resources :users, only: [:create] do
     #* 擴充新路徑
     #* member 有 ID
     # member do
@@ -23,13 +33,13 @@ Rails.application.routes.draw do
     # end
 
     #* collection 無 ID
-    collection do
-      get :sign_up
-      get :edit
-      patch :update
-      get :sign_in
-      post :login
-      delete :sign_out
-    end
-  end
+    # collection do
+    #   get :sign_up
+      # get :edit
+      # patch :update
+    #   get :sign_in
+    #   post :login
+    #   delete :sign_out
+    # end
+  # end
 end

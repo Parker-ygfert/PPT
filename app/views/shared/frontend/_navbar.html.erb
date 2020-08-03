@@ -1,5 +1,9 @@
 <header class="row">
-  <p class="locate">【主功能表】</p>
+  <p class="locate">
+    <%#= @location ||"【主功能表】"%>
+    <%#= yield :navbar_title %>
+    <%= navbar_title %>
+  </p>
 
   <h1>批批踢實業坊</h1>
   <nav>

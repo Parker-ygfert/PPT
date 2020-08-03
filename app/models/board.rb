@@ -7,6 +7,9 @@ class Board < ApplicationRecord
   has_many :posts, dependent: :destroy #* 預設 foreign_key: "board_id"
   #* has_many 會做出關聯兩個 Model 的方法
 
+  has_many :board_masters
+  has_many :users, through: :board_masters
+
   # default_scope { where(deleted_at: nil) }
   #* 為所有搜尋都加上這條限制
   #* unscope(:where)，擺脫預設限制
