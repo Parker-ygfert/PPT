@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   get '/about', to: 'pages#about'
 
+  resources :favorites, except: [:show, :edit]
+
   resources :boards do
   #* resources :boards, path: 'cards' 自動轉址
     # resources :posts, only: [:index, :new, :create]
@@ -42,4 +44,5 @@ Rails.application.routes.draw do
     #   delete :sign_out
     # end
   # end
+  
 end
