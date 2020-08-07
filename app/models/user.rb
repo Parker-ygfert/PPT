@@ -5,6 +5,7 @@ class User < ApplicationRecord
 
   has_many :board_masters
   has_many :boards, through: :board_masters
+  has_many :posts
 
 
   before_create :encrypt_password

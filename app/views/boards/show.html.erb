@@ -19,9 +19,10 @@
       <% @posts.each do |post| %>
         <tr>
           <td><%= post.id %></td>
-          <td></td>
+          <%#= post.user.try(:account) %>
+          <td><%= post.display_username %></td>
           <td><%= link_to post.title, post %></td>
-          <td><%= link_to "編輯", post %></td>
+          <td><%= link_to "編輯", :edit_post %></td>
           <td><%= link_to "刪除", post %></td>
         </tr>
       <% end %>

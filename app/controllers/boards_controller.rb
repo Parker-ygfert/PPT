@@ -34,7 +34,7 @@ class BoardsController < ApplicationController
       # render file: '/public/404.html', status: 404 #* 宣告 404 狀態給瀏覽器看
     # end
 
-    @posts = @board.posts
+    @posts = @board.posts.includes(:user)
   end
 
   def new

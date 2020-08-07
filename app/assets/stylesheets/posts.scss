@@ -1,3 +1,13 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.post-show li {
+  font-size: 24px;
+  text-align-last: left;
+}
+.post-show li.author-board {
+  display: flex;
+}
+.post-show li.author-board div:first-child {
+  margin-right: auto;
+}
