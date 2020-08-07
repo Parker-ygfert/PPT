@@ -1,6 +1,4 @@
 class Post < ApplicationRecord
-  belongs_to :board
-
   validates :title, presence: true
   # validates :serial, uniqueness: true { scope: :abc, message: "abc"}
   #* 可以增加 scope 同時比對另一個欄目
@@ -8,10 +6,17 @@ class Post < ApplicationRecord
   #* 用 allow_nil: true 是鴕鳥心態
   validates :serial, uniqueness: true, allow_nil: true
   validates :ip_address, presence: true
-
+  
+  belongs_to :board
+  belongs_to :user
 
 
   before_create :create_serial
+
+  def display_username
+    user.nil? ? "-" : user.account
+  end
+
 
   private
   def create_serial
@@ -26,4 +31,5 @@ class Post < ApplicationRecord
     end
     serial
   end
+
 end

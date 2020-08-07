@@ -9,6 +9,9 @@ class Board < ApplicationRecord
 
   has_many :board_masters
   has_many :users, through: :board_masters
+  
+  has_many :favorite_boards
+  has_many :my_users, through: :favorite_boards, source: :user
 
   # default_scope { where(deleted_at: nil) }
   #* 為所有搜尋都加上這條限制
