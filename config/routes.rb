@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get '/about', to: 'pages#about'
 
-  resources :favorites, except: [:show, :edit]
+  resources :favorites, only: [:index]
 
   resources :boards do
   #* resources :boards, path: 'cards' 自動轉址
@@ -13,6 +13,10 @@ Rails.application.routes.draw do
 
     resources :posts, shallow: true
     #* 直接做掉分兩次的 only 和 except 寫法
+
+    member do
+      post :favorite
+    end
   end
 
   # resources :posts, except: [:index, :new, :create]
