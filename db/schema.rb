@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_03_085816) do
+
+ActiveRecord::Schema.define(version: 2020_08_07_072013) do
 
   create_table "board_masters", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -31,6 +32,16 @@ ActiveRecord::Schema.define(version: 2020_08_03_085816) do
     t.index ["deleted_at"], name: "index_boards_on_deleted_at"
   end
 
+  create_table "favorite_boards", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "board_id", null: false
+    t.integer "position"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["board_id"], name: "index_favorite_boards_on_board_id"
+    t.index ["user_id"], name: "index_favorite_boards_on_user_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -40,9 +51,11 @@ ActiveRecord::Schema.define(version: 2020_08_03_085816) do
     t.string "serial"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
     t.index ["board_id"], name: "index_posts_on_board_id"
     t.index ["deleted_at"], name: "index_posts_on_deleted_at"
     t.index ["serial"], name: "index_posts_on_serial", unique: true
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -62,5 +75,9 @@ ActiveRecord::Schema.define(version: 2020_08_03_085816) do
 
   add_foreign_key "board_masters", "boards"
   add_foreign_key "board_masters", "users"
+
+  add_foreign_key "favorite_boards", "boards"
+  add_foreign_key "favorite_boards", "users"
+
   add_foreign_key "posts", "boards"
 end

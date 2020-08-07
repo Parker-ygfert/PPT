@@ -7,12 +7,13 @@ class BoardsController < ApplicationController
   #   render file: '/public/404.html', status: 404
   # end
 
-  before_action :find_board, only: [:show, :edit, :update, :destroy]
+  before_action :find_board, only: [:show, :edit, :update, :destroy, :favorite]
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
     # @boards = Board.where(deleted_at: nil)
     @boards = Board.all
+    @location = "看板列表"
   end
 
   def show
@@ -33,8 +34,15 @@ class BoardsController < ApplicationController
       # render file: '/public/404.html', status: 404 #* 宣告 404 狀態給瀏覽器看
     # end
 
-    @posts = @board.posts
+    @posts = @board.posts.includes(:user)
   end
+
+  def favorite
+    current_user.toggle_favorite(@board)
+    # current_user.my_boards << @board unless current_user.my_boards.include?(@board)
+    redirect_to favorites_path, notice: "看板已加入最愛"
+  end
+
 
   def new
     #* 把檢查拉到 before_action

@@ -5,17 +5,33 @@ Rails.application.routes.draw do
 
   get '/about', to: 'pages#about'
 
+  resources :favorites, only: [:index]
+
   resources :boards do
   #* resources :boards, path: 'cards' 自動轉址
     # resources :posts, only: [:index, :new, :create]
 
     resources :posts, shallow: true
     #* 直接做掉分兩次的 only 和 except 寫法
+
+    member do
+      post :favorite
+    end
   end
 
   # resources :posts, except: [:index, :new, :create]
 
-  resources :users, only: [:create] do
+  resource :users, only: [:create, :edit, :update] do
+    collection do
+      get :sign_up
+      get :sign_in
+      post :login
+      delete :sign_out
+    end
+  end
+
+  #! create 路徑顯示會跑到最下面
+  # resources :users, only: [:create] do
     #* 擴充新路徑
     #* member 有 ID
     # member do
@@ -23,13 +39,14 @@ Rails.application.routes.draw do
     # end
 
     #* collection 無 ID
-    collection do
-      get :sign_up
-      get :edit
-      patch :update
-      get :sign_in
-      post :login
-      delete :sign_out
-    end
-  end
+    # collection do
+    #   get :sign_up
+      # get :edit
+      # patch :update
+    #   get :sign_in
+    #   post :login
+    #   delete :sign_out
+    # end
+  # end
+  
 end

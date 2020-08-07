@@ -1,0 +1,2 @@
+class UserBornDate < ApplicationRecord
+end
