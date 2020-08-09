@@ -16,10 +16,11 @@ class User < ApplicationRecord
 
   #* keyword argument
   # def self.login(account:, password:)
-  def self.login(options)
-    if options[:account] and options[:password]      
-      find_by(account: options[:account],
-              password: Digest::SHA1.hexdigest("x#{options[:password]}y"))
+  def login(options)
+    if options[:account] and options[:password]  
+      User.find_by(account: options[:account],
+              password: bigbang(options[:password]))
+              # password: Digest::SHA1.hexdigest("x#{options[:password]}y"))
     end
   end
 

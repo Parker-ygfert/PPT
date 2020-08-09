@@ -35,8 +35,8 @@ class UsersController < ApplicationController
   def login
     #* 因為 login 方法已有做參數輸入檢查，所以可以少做一步檢查
     # if user_params[:account] and user_params[:password]
-      user = User.login(user_params)
-      byebug
+      user = User.new.login(user_params)
+      
       if user
         sign_in_user(user)
         redirect_to root_path, notice: "歡迎光臨 批批踢"
