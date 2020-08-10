@@ -1,6 +1,15 @@
 <div class="container board-show">
   <%#= @board.title %><%#= link_to "我的最愛", favorites_path(id: @board.id), method: :post %>
-  <h1>看板：<%= @board.title %><%= link_to "我的最愛", :favorite_board, method: :post %></h1>
+  <h1>看板：
+    <%= @board.title %>
+
+    <div class="favorite-board" data-controller="heart">
+      <%= link_to "我的最愛", :favorite_board, method: :post %>
+      <button data-action="heart#favorite">
+        <i class="far fa-heart" data-target="heart.heart"></i>
+      </button>
+    </div>
+  </h1>
   <p>[版主：<%= display_bm(@board) %>]</p>
   <h2>
     <%= link_to "新增文章", new_board_post_path(@board) %>
