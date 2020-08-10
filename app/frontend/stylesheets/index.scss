@@ -14,7 +14,9 @@ footer span {
   line-height: 100%;
 }
 
-
+a {
+  text-decoration: none !important;
+}
 
 .my-boards li {
   font-size: 30px;
@@ -111,6 +113,7 @@ nav .links p.en {
 }
 nav .links p.zh {
   margin-right: 15rem;
+  width: 13rem;
 }
 nav .links:last-child p.zh {
   margin-right: 14.7rem;

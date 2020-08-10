@@ -40,7 +40,11 @@ class BoardsController < ApplicationController
   def favorite
     current_user.toggle_favorite(@board)
     # current_user.my_boards << @board unless current_user.my_boards.include?(@board)
-    redirect_to favorites_path, notice: "看板已加入最愛"
+
+    respond_to do |format|
+      format.html { redirect_to favorites_path, notice: "看板已加入最愛" }
+      format.json { render json: {status: @board.favorited_by?(current_user)} }
+    end
   end
 
 
