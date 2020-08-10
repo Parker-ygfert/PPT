@@ -55,3 +55,9 @@
 - Category ?
 - Chat ?
 
+
+# Comment
+  - post:belongs_to
+  - user:belongs_to
+  - content:string
+  - ip_address:string

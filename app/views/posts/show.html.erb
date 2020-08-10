@@ -3,7 +3,7 @@
     <li class="author-board">
       <div>
         <span>作者</span>
-        <span><%= @post.user.account %></span>
+        <span><%= display_author(@post) %></span>
       </div>
       <div>
         <span>看板</span>
@@ -27,6 +27,25 @@
   </p>
 
   <br>
+  <div>
+    <%= form_with(model: @comment, url: post_comments_path(@post)) do |f| %>
+      <div>
+        <%= f.text_field :content %>
+        <%= f.submit "送出" %>
+      </div>
+    <% end %>
+  </div>
+  
+  <hr>
+
+  <ul>
+    <% @comments.each do |comment| %>
+      <li>
+        <%= comment.user.account %>：
+        <%= comment.content %>
+      </li>
+    <% end %>
+  </ul>
 
   <div>
     <%= link_to "編輯", :edit_post %>

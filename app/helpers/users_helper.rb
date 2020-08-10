@@ -8,5 +8,14 @@ module UsersHelper
   # def current_user
   #   User.find(session[:user_token]) if user_signed_in?
   # end
+
+  def display_author(post)
+    if post.user
+      post.user.account
+    else
+      "-"
+    end
+  end
   
+    
 end

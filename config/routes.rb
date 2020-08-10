@@ -11,8 +11,11 @@ Rails.application.routes.draw do
     #* resources :boards, path: 'cards' 自動轉址
     # resources :posts, only: [:index, :new, :create]
 
-    resources :posts, shallow: true
+    resources :posts, shallow: true do
     #* 直接做掉分兩次的 only 和 except 寫法
+      resources :comments, shallow: true, only: [:create]
+      # post 
+    end
 
     member do
       post :favorite
