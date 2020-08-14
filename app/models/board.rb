@@ -30,6 +30,9 @@ class Board < ApplicationRecord
   # end
 
   def favorited_by?(user)
+    p "-" * 20
+    p my_users.include?(user)
+    p "-" * 20
     my_users.include?(user)
   end
   
