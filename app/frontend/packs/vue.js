@@ -55,7 +55,8 @@
 //
 import TurbolinksAdapter from 'vue-turbolinks'
 import Vue from 'vue/dist/vue.esm'
-import App from '../app.vue'
+import App from 'vue/components/app.vue'
+// import Ad from 'vue/components/ui/ad.vue'
 
 Vue.use(TurbolinksAdapter)
 
