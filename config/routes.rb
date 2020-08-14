@@ -51,5 +51,11 @@ Rails.application.routes.draw do
     #   delete :sign_out
     # end
   # end
+
+  namespace :api do
+    namespace :v2 do
+      resources :boards, only: [:index]
+    end
+  end
   
 end
