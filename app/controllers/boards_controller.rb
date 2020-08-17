@@ -7,12 +7,12 @@ class BoardsController < ApplicationController
   #   render file: '/public/404.html', status: 404
   # end
 
-  before_action :find_board, only: [:show, :edit, :update, :destroy, :favorite]
+  before_action :find_board, only: [:show, :edit, :update, :destroy, :favorite, :hide]
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
     # @boards = Board.where(deleted_at: nil)
-    @boards = Board.all
+    @boards = Board.normal
     @location = "看板列表"
   end
 
@@ -48,6 +48,7 @@ class BoardsController < ApplicationController
   end
 
 
+
   def new
     #* 把檢查拉到 before_action
     # if user_signed_in?
@@ -79,6 +80,8 @@ class BoardsController < ApplicationController
     #* 這樣抓參數可以直接用 params[:board]
   end
 
+
+
   def edit
     # @board = Board.find(params[:id])
   end
@@ -93,6 +96,8 @@ class BoardsController < ApplicationController
     end
   end
 
+
+
   def destroy
     # @board = Board.find(params[:id])
     @board.destroy
@@ -101,11 +106,16 @@ class BoardsController < ApplicationController
     redirect_to boards_path, notice: "刪除成功"
   end
 
+  def hide
+    @board.hide! if @board.may_hide?
+    redirect_to boards_path, notice: "看板已隱藏！"
+  end
+
   
 
   private
   def find_board
-    @board = Board.find(params[:id])
+    @board = Board.normal.find(params[:id])
   end
   
   def board_params

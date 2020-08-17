@@ -1,9 +1,11 @@
 <div class="container">
   <h1>所有看板<h1>
 
+  <!--
   <div id="board">
       <Board></Board>
   </div>
+  -->
   
   <!-- <a href="/boards/new">新增看板1</a> -->
   <!-- <a href="<% new_board_path %>">新增看板2</a> -->
@@ -26,7 +28,7 @@
         <th>看板</th>
         <th>中文敘述</th>
         <th>版主</th>
-        <th colspan="2"></th>
+        <th colspan="3"></th>
       </tr>
     </thead>
   
@@ -38,8 +40,9 @@
           <td><%= link_to board.title, board %></td>
           <td><%= board.intro %></td>
           <td>暫缺</td>
-          <td><%= link_to '編輯', edit_board_path(board) %></td>
-          <td><%= link_to '刪除', board_path(board), method: 'delete', data: {confirm: '確認刪除？'} %></td>
+          <td><%= link_to "編輯", edit_board_path(board) %></td>
+          <td><%= link_to "刪除", board_path(board), method: "delete", data: {confirm: "確認刪除？"} %></td>
+          <td><%= link_to "隱藏", hide_board_path(board), method: "put", data: {confirm: "真的要隱藏嗎？"} %></td>
           <!-- <li><%= link_to board.title, board %></li> -->
         </tr>
       <% end %>

@@ -1,6 +1,9 @@
 class Board < ApplicationRecord
   # acts_as_paranoid
 
+  # default_scope { where(state: "normal") }
+  # default_scope { normal }
+
   #* 為何表單驗證是在 Model 這邊做?
   validates :title, :intro, presence: true, length: { minimum: 2 }
 
@@ -34,6 +37,32 @@ class Board < ApplicationRecord
     p my_users.include?(user)
     p "-" * 20
     my_users.include?(user)
+  end
+
+  include AASM
+  aasm(column: "state") do # default column: aasm_state
+    state :normal, initial: true
+    state :hidden, :locked
+
+    event :hide do
+      transitions from: [:normal, :locked], to: :hidden
+    end
+
+    event :show do
+      transitions from: :hidden, to: :locked
+    end
+
+    event :lock do
+      transitions from: [:normal, :hidden], to: :locked
+
+      after_transaction do
+        puts "已鎖版！"
+      end
+    end
+
+    event :unlock do
+      transitions from: :locked, to: :normal
+    end
   end
   
 end
