@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include Pundit
 
   # include UsersHelper
   #* 寫在 View Helper，Controller include

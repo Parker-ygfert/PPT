@@ -4,6 +4,8 @@ class Board < ApplicationRecord
   # default_scope { where(state: "normal") }
   # default_scope { normal }
 
+  paginates_per 5
+
   #* 為何表單驗證是在 Model 這邊做?
   validates :title, :intro, presence: true, length: { minimum: 2 }
 

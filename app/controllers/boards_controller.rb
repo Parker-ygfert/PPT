@@ -12,7 +12,7 @@ class BoardsController < ApplicationController
 
   def index
     # @boards = Board.where(deleted_at: nil)
-    @boards = Board.normal
+    @boards = Board.normal.page(params[:page]).per(2)
     @location = "看板列表"
   end
 
