@@ -12,7 +12,7 @@ class BoardsController < ApplicationController
 
   def index
     # @boards = Board.where(deleted_at: nil)
-    @boards = Board.normal.page(params[:page]).per(2)
+    @boards = Board.normal.page(params[:page]).per(4)
     @location = "看板列表"
   end
 
@@ -56,13 +56,16 @@ class BoardsController < ApplicationController
     # else
     #   redirect_to root_path, notice: "請先登入會員"
     # end
+    authorize @board, :new?
   end
 
   def create
     # @board = Board.new(params[:board])
     #* 參數未經過清洗會被擋住
-
+    
     @board = Board.new(board_params)
+    authorize @board, :create?
+    @board.users << current_user
 
     if @board.save
       # flash[:notice] = "新增成功"

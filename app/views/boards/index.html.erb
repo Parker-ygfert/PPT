@@ -11,9 +11,10 @@
   <!-- <a href="<% new_board_path %>">新增看板2</a> -->
   <!-- 用 path 在開發過程中可以提早發現錯誤 -->
   <div class="row">
+    <!--
+    <p class="links"><%= link_to "新增看板", :new_board if policy(:board).new? %></p>
+    -->
     <p class="links"><%= link_to "新增看板", :new_board %></p>
-    <p class="links"><%= link_to "註冊", :sign_up_users %></p>
-    <p class="links"><%= link_to "登入", :sign_in_users %></p>
   </div>
   
   
@@ -39,7 +40,7 @@
           <td><%= board.id %></td>
           <td><%= link_to board.title, board %></td>
           <td><%= board.intro %></td>
-          <td>暫缺</td>
+          <td><%= display_bm(board) %></td>
           <td><%= link_to "編輯", edit_board_path(board) %></td>
           <td><%= link_to "刪除", board_path(board), method: "delete", data: {confirm: "確認刪除？"} %></td>
           <td><%= link_to "隱藏", hide_board_path(board), method: "put", data: {confirm: "真的要隱藏嗎？"} %></td>

@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
 
   #* 共用設定可以搬到父層
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
+  rescue_from Pundit::NotAuthorizedError, with: :not_authorize
 
   # before_action :find_user
   #* 移到 Users View Helper
@@ -22,6 +23,10 @@ class ApplicationController < ActionController::Base
 
   def not_found
     render file: '/public/404.html', status: 404, layout: false
+  end
+
+  def not_authorize
+    redirect_to :pricing, notice: "請升級會員帳號"
   end
 
   def user_signed_in?
