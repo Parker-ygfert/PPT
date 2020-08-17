@@ -61,3 +61,10 @@
   - user:belongs_to
   - content:string
   - ip_address:string
+
+# Mailbox
+- from:integer
+- title:integer
+- content:text
+- user_id:belongs_to user
+- reply_id:belongs_to mailbox
