@@ -24,6 +24,9 @@ class PostsController < ApplicationController
     # @post.user = current_user
 
     if @post.save
+      # PostMailer.with(post: @post).poster.deliver_later
+      SendmailJob.set(wait: 10.seconds).perform_later(@post)
+      
       # redirecto_to board_path(board.id), notice: "文章新增成功"
       redirect_to @board, notice: "文章新增成功"
     else
