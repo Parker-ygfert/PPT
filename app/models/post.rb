@@ -12,6 +12,9 @@ class Post < ApplicationRecord
 
   has_many :comments
 
+  has_one_attached :photo
+  has_rich_text :hello
+
   before_create :create_serial
 
   def display_username

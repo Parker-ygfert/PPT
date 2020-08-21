@@ -25,7 +25,7 @@ class PostsController < ApplicationController
 
     if @post.save
       # PostMailer.with(post: @post).poster.deliver_later
-      SendmailJob.set(wait: 10.seconds).perform_later(@post)
+      # SendmailJob.set(wait: 10.seconds).perform_later(@post)
       
       # redirecto_to board_path(board.id), notice: "文章新增成功"
       redirect_to @board, notice: "文章新增成功"
@@ -57,7 +57,7 @@ class PostsController < ApplicationController
   
   def post_params
     params.require(:post)
-          .permit(:title, :content, :ip_address)
+          .permit(:title, :content, :ip_address, :photo, :hello)
           .merge(user: current_user)
   end
   
