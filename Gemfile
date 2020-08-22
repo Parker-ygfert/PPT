@@ -33,6 +33,7 @@ gem 'kaminari', '~> 1.2', '>= 1.2.1'
 gem 'pundit', '~> 2.1'
 gem "braintree", "~> 2.102.0"
 gem 'figaro', '~> 1.2'
+gem 'redcarpet', '~> 3.5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -35,6 +35,8 @@ class BoardsController < ApplicationController
     # end
 
     @posts = @board.posts.includes(:user)
+    # markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, filter_html: false, autolink: true, tables: true)
+    # @intro = markdown.render(@board.intro)
   end
 
   def favorite
