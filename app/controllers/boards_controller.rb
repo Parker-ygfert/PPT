@@ -50,7 +50,6 @@ class BoardsController < ApplicationController
   end
 
 
-
   def new
     #* 把檢查拉到 before_action
     # if user_signed_in?
